@@ -1,10 +1,28 @@
-<ion-view view-title="TEMPLE ISRAEL YFTI">
+<ion-view view-title="UPCOMING EVENTS">
     <ion-content class="padding">
         <ion-list>
-           <ion-item class="item-remove-animate item-avatar item-icon-left" href="#/tab/events/{{event.id}}" ng-repeat="event in events">
-                <i class="icon ion-ios-calendar"></i> {{event.title}}
-            </a>
+            <ion-item class="item-remove-animate item-avatar item-icon-left" href="#/tab/events/{{event.id}}" ng-repeat="event in events">
+                <div class="list card">
+                    <div class="item item-avatar">
+                        <img ng-src="{{event.photoUrl}}">
+                        <h2>{{event.title}}</h2>
+                        <p>{{event.date}}</p>
+                    </div>
+                    <div class="item item-body">
+                        <img class="full-image" src="{{event.photoUrl}}">
+                        <p >
+                            <!-- {{event.description}} -->
+                            This is a description of the event that's going to be taking place like what it's about and what not. cool yeah.
+                        </p>
+                      
+                        <div class="item item-button-right"> 
+                          <a href="#" class="subdued"><i ng-click="toggleLike(event)" class="ion-ios-heart-outline">  </i>{{event.numLikes}} Likes</a>
+                            <button ng-click='register(event)'class="button button-energized">
+                                Register
+                            </button>
+                        </div>
+                    </div>
+                    </a>
         </ion-list>
     </ion-content>
 </ion-view>
-
