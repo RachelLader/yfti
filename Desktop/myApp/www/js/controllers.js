@@ -1,8 +1,9 @@
 angular.module('starter.controllers', [])
 
-.controller('LoginCtrl', function($scope, $ionicPopup, $state) {
+.controller('LoginCtrl', function($scope, $ionicPopup, $state, Auth) {
     $scope.data = {};
     $scope.user={};
+    $scope.count=1;
  
     $scope.login = function() {
         LoginService.loginUser($scope.data.username, $scope.data.password).success(function(data) {
@@ -21,11 +22,16 @@ angular.module('starter.controllers', [])
     }
 
     $scope.nextSteps= function(){
-    $state.go('register-next');
+      $scope.count++;
     }
 
     $scope.registerFinal= function(){
-      $state.go('register-final')
+      $scope.count++;
+      console.log('final:', $scope.user)
+    }
+    $scope.processRegistration= function(){
+      console.log('process user', $scope.user)
+      Auth.registerUser($scope.user)
     }
 })
 

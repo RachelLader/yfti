@@ -4,14 +4,14 @@
             </br>
             </br>
             <label class="item item-input">
-                <input type="text" placeholder="Address" required>
+                <input ng-model="user.address"type="text" placeholder="Address" required>
             </label>
             </br>
             <label class="item item-input">
-                <input type="text" placeholder="City" required>
+                <input type="text" ng-model="user.city"placeholder="City" required>
             </label>
             </br>
-            <label class="item item-input input-select" required>
+            <label ng-model="user.state"class="item item-input input-select" required>
                 <select>
                     <option value="AL">Alabama</option>
                     <option value="AK">Alaska</option>
@@ -68,23 +68,23 @@
             </label>
             </br>
             <label class="item item-input" required>
-                <input type="text" placeholder="Parent/Guardian First Name">
+                <input ng-model="user.parentFirst" type="text" placeholder="Parent/Guardian First Name">
             </label>
             </br>
             <label class="item item-input" required>
-                <input type="text" placeholder="Parent/Guardian Last Name">
+                <input ng-model="user.parentLast" type="text" placeholder="Parent/Guardian Last Name">
             </label>
             </br>
             <label class="item item-input" required>
-                <input type="text" placeholder="Parent/Guardian Phone Number">
+                <input ng-model="user.parentPhone"type="text" placeholder="Parent/Guardian Phone Number">
             </label>
             </br>
             <label class="item item-input" required>
-                <input type="email" placeholder="Parent/Guardian Email">
+                <input ng-model="user.parentEmail" type="email" placeholder="Parent/Guardian Email">
             </label>
             </br>
             Student Date of Birth:
-            <label class="item item-input input-select" required>
+            <label ng-model="user.birthday"class="item item-input input-select" required>
                 <select>
                     <option>January</option>
                     <option>February</option>

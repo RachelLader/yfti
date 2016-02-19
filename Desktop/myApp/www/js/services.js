@@ -1,4 +1,4 @@
-angular.module('starter.services', [])
+angular.module('starter.services',[])
 
 .factory('Events', function() {
 
@@ -32,24 +32,42 @@ angular.module('starter.services', [])
             }
         }
     })
-    .factory("Auth", function($firebaseAuth) {
-       
-    })
-
-    .factory('Photos', function($http) {
-        // Might use a resource here that returns a JSON array
-
-        // Some fake testing data
-        var getPhotos = function() {
+    .factory("Auth", function($http, $state) {
+        // Save data
+        var registerUser = function(user) {
             return $http({
-                method: 'GET',
-                url: '/getPhotos'
-            }).then(function(response) {
-                console.log(response);
-            });
+                method: 'POST',
+                url: '/api/registerUser',
+                params:{
+                  user: user
+                }
+            }).then(function(err, response) {
+                if (err) console.log('error saving user:', err);
+                console.log('user succesfully saved');
+                $state.go('tab.events')
+            })
         }
 
         return {
-            getPhotos: getPhotos
-        };
-    });
+            registerUser: registerUser
+
+        }
+    })
+
+.factory('Photos', function($http) {
+    // Might use a resource here that returns a JSON array
+
+    // Some fake testing data
+    var getPhotos = function() {
+        return $http({
+            method: 'GET',
+            url: '/getPhotos'
+        }).then(function(response) {
+            console.log(response);
+        });
+    }
+
+    return {
+        getPhotos: getPhotos
+    };
+});
