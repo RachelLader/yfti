@@ -33,8 +33,7 @@ angular.module('starter.services', [])
         }
     })
     .factory("Auth", function($firebaseAuth) {
-        var usersRef = new Firebase("https//yfti.firebaseio.com/users");
-        return $firebaseAuth(usersRef);
+       
     })
 
     .factory('Photos', function($http) {

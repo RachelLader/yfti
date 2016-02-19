@@ -40,8 +40,18 @@ angular.module('starter', ['ionic', 'firebase', 'starter.controllers', 'starter.
         .state('register', {
             url: '/register',
             templateUrl: 'templates/register.html',
-            controller: 'RegisterCtrl'
+            controller: 'LoginCtrl'
 
+        })
+        .state('register-next',{
+          url:'/register-next',
+          templateUrl:'templates/register2.html',
+          controller:'LoginCtrl'
+        })
+        .state('register-final',{
+          url:'/register-final',
+          templateUrl:'templates/register3.html',
+          controller:'LoginCtrl'
         })
         .state('tab', {
             url: '/tab',
